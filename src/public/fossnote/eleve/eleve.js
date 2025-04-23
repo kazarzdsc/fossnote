@@ -3477,7 +3477,8 @@ IE.fModule({
                     return lTab;
                 }
                 aChaine = aChaine.substring(1, aChaine.length - 1);
-                const R = new Array(aNombreValeurs !== TypeDomaine.CTailleOuverte ? aNombreValeurs : 0);
+                // const R = new Array(aNombreValeurs !== TypeDomaine.CTailleOuverte ? aNombreValeurs : 0);
+                const R = new Array(Math.max(0, parseInt(aNombreValeurs) || 0));
                 const T1 = aChaine.split(',');
                 for (let I = 0; I < T1.length; I++) {
                     const T2 = T1[I].split('..');
@@ -28075,7 +28076,7 @@ IE.fModule({
                     GParametres = new ObjetParametres(aJSON);
                     this.initialisationApresParametres(aParametres);
                 } catch (e) {
-                    alert('Erreur : ' + e.message);
+                    alert("Erreur : " + e.message)
                 }
             }
             initialisationApresParametres() {

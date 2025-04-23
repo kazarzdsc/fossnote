@@ -1650,7 +1650,7 @@ IE.fModule({
             a("mobile.bandeauAndroid1", "Installer ou configurer l'application FOSSNOTE");
             a("PiedPage.tutosForumQCM", "Tutos vidéo");
             a("PiedPage.Canope", "Le réseau de création et d'accompagnement pédagogiques");
-            a("PiedPage.PageEtablissement", "Page de l'établissement");
+            a("PiedPage.PageEtablissement", "Informations");
             a("FenetreMentionsLegales.adresseEtablissement", "Adresse de l'établissement");
             a("PiedPage.toutSavoirPronote", "Tout savoir sur FOSSNOTE");
             a("Commande.Accueil.Actif", "Accueil");

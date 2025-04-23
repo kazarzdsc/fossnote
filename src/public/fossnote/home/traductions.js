@@ -1859,7 +1859,7 @@ IE.fModule({
         "PiedPage.Canope",
         "Le réseau de création et d'accompagnement pédagogiques"
       );
-      a("PiedPage.PageEtablissement", "Page de l'établissement");
+      a("PiedPage.PageEtablissement", "Informations");
       a("FenetreMentionsLegales.adresseEtablissement", "Adresse de l'école");
       a("PiedPage.toutSavoirPronote", "Tout savoir sur FOSSNOTE Primaire");
       a("Commande.Accueil.Actif", "Accueil");

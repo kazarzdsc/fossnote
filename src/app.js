@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fs = require("fs");
 
 const session = require("./databases/session");
 const eleves = require("./databases/eleves");
@@ -9,8 +10,11 @@ const classes = require("./databases/classes");
 const subjects = require("./databases/subjects");
 const evaluations = require("./databases/evaluations");
 
-if (require('./config/discord.json').token) {
-    const bot = require("./discord/deploy-commands");
+
+if (fs.existsSync('./config/discord.json')) {
+    if (require('./config/discord.json').token) {
+        const bot = require("./discord/deploy-commands");
+    }
 }
 
 app.use(express.json())
