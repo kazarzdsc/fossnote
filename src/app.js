@@ -10,8 +10,7 @@ const classes = require("./databases/classes");
 const subjects = require("./databases/subjects");
 const evaluations = require("./databases/evaluations");
 
-
-if (fs.existsSync('./config/discord.json')) {
+if (fs.existsSync('src/config/discord.json')) {
     if (require('./config/discord.json').token) {
         const bot = require("./discord/deploy-commands");
     }
