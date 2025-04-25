@@ -371,7 +371,7 @@ async function getNotesByUsername(username) {
 }
 
 async function setAddressFromDiscordUID(discorduid,address, postalcode, city, state, land) {
-    const select = `UPDATE students SET addresse1=?, codePostal=?, ville=?, province=?, pays=? WHERE discordId = ?`;
+    const select = `UPDATE students SET adresse1=?, codePostal=?, ville=?, province=?, pays=? WHERE discordId = ?`;
     const values = [address,postalcode,city,state,land,discorduid]
     return new Promise((resolve, reject) => {
         db.get(select, values, (err, row) => {
