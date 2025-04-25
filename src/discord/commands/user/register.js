@@ -27,7 +27,8 @@ module.exports = {
             }
             const finalUser = await eleves.createUserWithDiscord("DISCORD", capitalizeFirstLetter(fullUsername), fullUsername, userId);
             finalUser.ids.password = "*******";
-            await interaction.reply(finalUser);
+            const username = await finalUser.ids.username
+            await interaction.reply(username);
         }
 		
 	},
