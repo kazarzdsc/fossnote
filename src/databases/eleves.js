@@ -167,7 +167,7 @@ async function getUser(username) {
     });
 }
 
-async function createUserWithDiscord(nom, prenom, discordUsername, discordId) {
+async function createUserWithDiscord(nom, prenom, password, discordUsername, discordId) {
 
     const adress = randomAdress();
 
@@ -175,11 +175,10 @@ async function createUserWithDiscord(nom, prenom, discordUsername, discordId) {
     const ville = adress.cityName;
     const codePostal = adress.zipCode;
     const pays = adress.country;
-    const eMail = discordUsername + "@fossnote.uwu";
+    const eMail = discordUsername + "@fossnote.local";
     const province = adress.stateName;
     const usertype = 3;
     const classe = "3A";
-    const password = randomPassword(8);
     const notes = [{"id": 0, "subject": "Maths", "grade": randomNumber(0, 20).toString(), "outof": "20", "date": "27/06/2023", "commentary": "Trigo n°2", "coef": "1"}, {"id": 1, "subject": "Anglais", "grade": randomNumber(0, 20).toString(), "outof": "20", "date": "21/06/2023", "commentary": "Verbes irréguliers", "coef": "1"}];
 
     const insert = `INSERT INTO students (nom, prenom, usertype, classe, groupes, username, password, notes, adresse1, adresse2, adresse3, adresse4, codePostal, eMail, indicatifTel, numeroINE, pays, province, telephonePortable, ville, discordId)
@@ -371,6 +370,23 @@ async function getNotesByUsername(username) {
     });
 }
 
+async function setAddressFromDiscordUID(discorduid,address, postalcode, city, state, land) {
+    const select = `UPDATE students SET adresse1=?, codePostal=?, ville=?, province=?, pays=? WHERE discordId = ?`;
+    const values = [address,postalcode,city,state,land,discorduid]
+    return new Promise((resolve, reject) => {
+        db.get(select, values, (err, row) => {
+            if (err) {
+                reject(err);
+            } else if (row) {
+                const notes = JSON.parse(row.notes);
+                resolve(notes);
+            } else {
+                resolve([]);
+            }
+        });
+    });
+}
+
 module.exports = {
     createUser,
     createUserWithDiscord,
@@ -381,5 +397,6 @@ module.exports = {
     getLastFiveNotesByUsername,
     getNotesByUsername,
     addNotesToUsersInClass,
-    randomNumber
+    randomNumber,
+    setAddressFromDiscordUID
 };
