@@ -30,7 +30,7 @@ module.exports = {
         
         const modal = new ModalBuilder()
             .setCustomId("reg_modal_step2")
-            .setTitle("Informations personelles (étape 2/2)")
+            .setTitle("Informations personelles complémentaires")
         const { ars, fields } = addressDialogFields()
         modal.addComponents(ars)
 
@@ -53,7 +53,7 @@ module.exports = {
                 submitted.fields.getTextInputValue("reg_land")
             ]
             await setAddressFromDiscordUID(userId, address, postalcode, city, state, land);
-            submitted.reply("Information saved successfully.")
+            submitted.reply("Vos informations ont bien été enregistrées.")
         }
     }
 }

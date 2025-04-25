@@ -44,7 +44,7 @@ module.exports = {
 
             let modal = new ModalBuilder()
                 .setCustomId("reg_modal")
-                .setTitle("Informations personelles (étape 1/2)")
+                .setTitle("Informations personelles")
             const {ars,fields} = generateRegModalFields()
             modal.addComponents(ars);
 
